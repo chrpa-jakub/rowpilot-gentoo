@@ -22,16 +22,3 @@ sudo emerge --ask dev-db/rowpilot-bin
 ```
 
 Launch `rowpilot` from a terminal or your application menu.
-
-## Updates
-
-```sh
-sudo emaint sync -r rowpilot-local
-sudo emerge --ask --update dev-db/rowpilot-bin
-```
-
-## Remove
-
-```sh
-sudo emerge --ask --unmerge dev-db/rowpilot-bin
-```
