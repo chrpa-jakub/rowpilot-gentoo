@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>diahexik@gmail.com</email>
+		<name>Chrpa Jakub</name>
+	</maintainer>
+	<use>
+		<flag name="suid">Install the setuid sandbox helper for systems without unprivileged user namespaces</flag>
+	</use>
+</pkgmetadata>

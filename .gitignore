@@ -1,0 +1,6 @@
+# Machine-specific Portage registration.
+/rowpilot-local.conf
+
+# Release assets are generated from the Git tag.
+/dist/
+*.AppImage
