@@ -1,4 +1,4 @@
-# Copyright 2026 Rowpilot ebuild contributors
+# Copyright 2026 Gentoo packaging contributors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8

@@ -1,6 +1,8 @@
-# Rowpilot Gentoo packaging 0.2.1
+# Unofficial Rowpilot Gentoo packaging 0.2.1
 
 Initial independent Gentoo overlay release for Rowpilot 0.2.1 on amd64/glibc.
+Rowpilot is developed by Michal Novotny. Chrpa Jakub maintains this packaging
+independently of the upstream application.
 
 - Versioned upstream download, verified by the Portage Manifest.
 - Extraction during the build without FUSE or executing the AppImage runtime.
@@ -9,7 +11,7 @@ Initial independent Gentoo overlay release for Rowpilot 0.2.1 on amd64/glibc.
 - Electron namespace sandboxing by default, with an optional `suid` helper.
 - Portage-managed updates.
 
-See [README.md](README.md) for repository registration, license acceptance, and
+See the [installation guide](https://github.com/chrpa-jakub/rowpilot-gentoo/blob/v0.2.1/README.md) for repository registration, license acceptance, and
 installation instructions. The package atom is `dev-db/rowpilot-bin`.
 
 ## Release assets

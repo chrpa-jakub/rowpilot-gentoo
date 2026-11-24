@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
+	<!-- Maintainer of the Gentoo packaging, independently of the upstream application. -->
 	<maintainer type="person">
 		<email>diahexik@gmail.com</email>
 		<name>Chrpa Jakub</name>

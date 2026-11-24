@@ -1,0 +1,54 @@
+name: Publish packaging release
+
+on:
+  push:
+    tags:
+      - 'v[0-9]*'
+
+permissions:
+  contents: read
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - name: Check out tagged source
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+
+      - name: Validate packaging metadata
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "${GITHUB_REF_NAME}" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]
+          bash -n dev-db/rowpilot-bin/*.ebuild
+          python3 -c 'import xml.etree.ElementTree as ET; ET.parse("dev-db/rowpilot-bin/metadata.xml")'
+
+      - name: Build overlay archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          archive="rowpilot-gentoo-${GITHUB_REF_NAME#v}.tar.gz"
+          mkdir -p dist
+          git archive --format=tar.gz --prefix=rowpilot-gentoo/ HEAD > "dist/${archive}"
+          cd dist
+          sha256sum "${archive}" > SHA256SUMS
+          sha256sum --check SHA256SUMS
+
+      - name: Publish release and assets
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh release create "${GITHUB_REF_NAME}" \
+            --verify-tag \
+            --title "Unofficial Gentoo packaging ${GITHUB_REF_NAME}" \
+            --notes-file RELEASE_NOTES.md \
+            "dist/rowpilot-gentoo-${GITHUB_REF_NAME#v}.tar.gz" \
+            dist/SHA256SUMS

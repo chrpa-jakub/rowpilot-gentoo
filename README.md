@@ -1,16 +1,17 @@
-# Rowpilot for Gentoo
+# Unofficial Gentoo packaging for Rowpilot
 
 Gentoo overlay providing `dev-db/rowpilot-bin-0.2.1` for amd64 with glibc.
-This is community packaging of the upstream binary, not an official Gentoo release.
+Rowpilot is developed by Michal Novotny; see the [upstream website](https://rowpilot.com/).
+Chrpa Jakub maintains this independent Gentoo overlay. This is an unofficial
+packaging release, unaffiliated with Rowpilot's author or the Gentoo project.
 
 ## Install
 
-Install the repository manager, register this overlay, and sync it. Replace
-`OWNER` with the GitHub account hosting this repository:
+Install the repository manager, register this overlay, and sync it:
 
 ```sh
 sudo emerge --ask app-eselect/eselect-repository dev-vcs/git
-sudo eselect repository add rowpilot-local git https://github.com/OWNER/rowpilot-gentoo.git
+sudo eselect repository add rowpilot-local git https://github.com/chrpa-jakub/rowpilot-gentoo.git
 sudo emaint sync -r rowpilot-local
 ```
 
@@ -128,3 +129,10 @@ Portage.
 
 This packaging was prepared with AI assistance and is maintained as an
 independent overlay.
+
+## Publishing packaging releases
+
+Update the versioned ebuild, Manifest, and release notes, validate the package,
+then push the changes and an annotated version tag such as `v0.2.1`. The release
+workflow builds an overlay archive and SHA256 checksum from that tag and publishes
+them as a GitHub release. It publishes packaging files only.
