@@ -2,8 +2,8 @@
 
 Gentoo overlay providing `dev-db/rowpilot-bin-0.2.1` for amd64 with glibc.
 Rowpilot is developed by Michal Novotny; see the [upstream website](https://rowpilot.com/).
-Chrpa Jakub maintains this independent Gentoo overlay. This is an unofficial
-packaging release, unaffiliated with Rowpilot's author or the Gentoo project.
+This independent Gentoo overlay provides an unofficial packaging release,
+unaffiliated with Rowpilot's author or the Gentoo project.
 
 ## Install
 
